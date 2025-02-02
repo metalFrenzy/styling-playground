@@ -1,7 +1,11 @@
 import './goals-form.scss'
 import { useState } from 'react';
 
-export function GoalsForm() {
+interface GoalsFormProps {
+    onsave:(goalsData: {goal: string}) => void;
+}
+
+export function GoalsForm(GoalsFormProps: GoalsFormProps) {
     const [goal, setGoal] = useState('');
     const goalHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setGoal(event.target.value)
@@ -10,6 +14,7 @@ export function GoalsForm() {
     const submitHandler = (event: React.FormEvent) => {
         event.preventDefault();
         console.log(goal);
+        GoalsFormProps.onsave({goal: goal});
         setGoal('');
     }
     return <form onSubmit={submitHandler}>
