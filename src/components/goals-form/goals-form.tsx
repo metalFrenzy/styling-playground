@@ -1,12 +1,23 @@
 import './goals-form.scss'
+import { useState } from 'react';
 
 export function GoalsForm() {
-    return <form>
+    const [goal, setGoal] = useState('');
+    const goalHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setGoal(event.target.value)
+    }
+
+    const submitHandler = (event: React.FormEvent) => {
+        event.preventDefault();
+        console.log(goal);
+        setGoal('');
+    }
+    return <form onSubmit={submitHandler}>
         <div className='goals-form'>
             <h1 className='form-title'>Goals Form</h1>
             <div className='title'>
                 <label>Goal</label>
-                <input type='text' />
+                <input type='text' onChange={goalHandler} value={goal} />
             </div>
         </div>
         <div className='action-button'>

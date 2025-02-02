@@ -1,0 +1,18 @@
+.goals {
+    background-color: rgb(11, 104, 110);
+    border-radius: 15px;
+    color: white;
+    margin: 1rem;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+
+}
+
+.goals:hover {
+    transform: scale(1.05);
+    font-weight: 500;
+}
